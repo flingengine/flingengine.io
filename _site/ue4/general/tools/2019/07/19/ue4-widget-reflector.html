@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://localhost:4000/style/main.css"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>UE4 Widget Reflector | Fling Engine</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="UE4 Widget Reflector" />
+<meta name="author" content="Ben Hoffman" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Disclaimer: This is not an official Epic Games document" />
+<meta property="og:description" content="Disclaimer: This is not an official Epic Games document" />
+<link rel="canonical" href="http://localhost:4000/ue4/general/tools/2019/07/19/ue4-widget-reflector.html" />
+<meta property="og:url" content="http://localhost:4000/ue4/general/tools/2019/07/19/ue4-widget-reflector.html" />
+<meta property="og:site_name" content="Fling Engine" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-07-19T22:16:02-04:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ue4/general/tools/2019/07/19/ue4-widget-reflector.html"},"@type":"BlogPosting","dateModified":"2019-07-19T22:16:02-04:00","url":"http://localhost:4000/ue4/general/tools/2019/07/19/ue4-widget-reflector.html","author":{"@type":"Person","name":"Ben Hoffman"},"headline":"UE4 Widget Reflector","description":"Disclaimer: This is not an official Epic Games document","datePublished":"2019-07-19T22:16:02-04:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<!--<link rel="stylesheet" href="/assets/main.css"> --><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Fling Engine" />
+
+
+</head>
+<body>
+
+    <div id="mainContent">
+
+      <div class="container borderXwidth">
+  <a href="http://localhost:4000/index.html#mainContent">HOME</a>
+</div>
+
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">UE4 Widget Reflector</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-07-19T22:16:02-04:00" itemprop="datePublished">Jul 19, 2019
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Ben Hoffman</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Disclaimer: This is not an official Epic Games document
+</code></pre></div></div>
+
+<h2 id="what-is-the-widget-reflector">What is the Widget Reflector?</h2>
+<p>The Widget Reflector is a tool in Unreal Engine that shows the you how 
+the editor UI is built with <a href="https://docs.unrealengine.com/en-US/Programming/Slate/index.html">Slate</a>,
+and allows you to jump straight to the source code that creates it.</p>
+
+<h2 id="how-do-i-use-it">How do I use it?</h2>
+
+<p>You can open the widget reflector by pressing <code class="highlighter-rouge">Ctrl + Shift + W</code> in the engine
+or by opening the command console and typeing <code class="highlighter-rouge">WidgetReflector</code>. Once you see your
+window there are a couple of key things to know:</p>
+
+<p><code class="highlighter-rouge">Pick Hit-Testable widgets</code> will track your mouse curser and show you the Slate
+heirarchy associated with the widget underneath it.</p>
+
+<p><img src="http://localhost:4000\media\posts\widget_reflector\WidgetReflectExample.gif" alt="Widget Reflector Example" /></p>
+
+<p>If you click on the <code class="highlighter-rouge">Source</code> category on the right of the widget you want to see, then you will 
+jump to the source code!</p>
+
+<p>You may notice that some of the things you click on bring you to the actualy Slate source 
+code (<code class="highlighter-rouge">SInlineEditableTextBlock.cpp</code> for example). While this can sometimes be what you want,
+more often than not you want to see what is actually calling this code and can lead to a 
+confusing first time experience, especially if you haven’t used Slate very much before. To solve this problem, just keep going up the call stack in the widget reflector and you will eventually find 
+what you are looking for.</p>
+
+<h2 id="why-is-it-useful">Why is it useful?</h2>
+
+<p>The widget reflector has a lot of good use cases. One good use is to see how 
+your game’s UI is being built at a more granular level to help with 
+optimization. I also found this tool especially useful when extending the UE editor.
+It makes finding examples of how to use Slate very fast and easy.</p>
+
+<h2 id="related-links">Related Links</h2>
+
+<ul>
+  <li><a href="https://docs.unrealengine.com/en-US/Engine/UMG/UserGuide/BestPractices/index.html">UMG Best Practicies</a></li>
+  <li><a href="https://docs.unrealengine.com/en-US/Programming/Slate/Overview/index.html">Slate Overview</a></li>
+</ul>
+
+  </div><a class="u-url" href="/ue4/general/tools/2019/07/19/ue4-widget-reflector.html" hidden></a>
+</article>
+
+
+    </div> <!-- End Main content -->
+<footer>
+
+  <a href="https://github.com/flingengine" target="_blank"><img src="http://localhost:4000\media\GitHub-Mark-32px.png" lat="GitHub Logo"/></a>
+  <a href="https://twitter.com/benjafriend" target="_blank"><img src="http://localhost:4000\media\twitter_logo.png" lat="Twitter Logo"/></a>
+
+  <p>&#169; Copyright Ben Hoffman 2019</p>
+    
+</footer>
+</body>
+
+</html>
