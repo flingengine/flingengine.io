@@ -3,14 +3,51 @@ layout: default
 ---
 
 <div id="about">
-  <img src="{{ site.url }}\media\cover.png" lat="GitHub Logo"/>
+  <img id = "projectBanner" src="{{ site.url }}\media\default.png" lat="GitHub Logo"/>
 
   <p>
-    Fling Engine is a cross platform Vulkan game engine with a focus on data oriented design. 
+    Fling Engine is a cross platform Vulkan game engine with a focus on providing
+    a simple to use data oriented framework. 
   </p>
+
+  <h3>Features</h3>
+  <ul>
+    <li>Cross platform (Windows and Linux)</li>
+    <li>Deferred renderering pipeline</li>
+    <li>Effecient gaemplay framewok via [Entt](https://github.com/skypjack/entt)</li>
+  </ul>
+
+  <h2>Get the source code on GitHub</h2>
+  <a href="https://github.com/flingengine/FlingEngine" target="_blank">
+    <img id = "logo_img" src="{{ site.url }}\media\GitHub-Mark-32px.png" lat="GitHub Logo"/>
+  </a>
 </div> <!-- End about -->
 
-<h2>Get the source code on GitHub</h2>
-<a href="https://github.com/flingengine/FlingEngine" target="_blank">
-  <img id = "logo_img" src="{{ site.url }}\media\GitHub-Mark-32px.png" lat="GitHub Logo"/>
-</a>
+
+<h2>Useage</h2>
+All you need to do in order to make a game with the Fling Engine is 
+to override the `Fling::Game` class, and specify your game when you
+create your engine instance. 
+
+Your game's `main.cpp`:
+<pre><code class="language-cpp">
+    #include "FlingEngine.h"
+
+    /* Entry point for using the Fling Engine! */
+    int main(int argc, char* argv[])
+    {
+      Fling::Engine Engine = {};
+    
+      try
+      {
+        Engine.Run<YourGame>();
+      }
+      catch (const std::exception& e)
+      {
+        std::cerr << e.what() << std::endl;
+        return EXIT_FAILURE;
+      }
+    
+      return EXIT_SUCCESS;
+    }
+</code></pre>
