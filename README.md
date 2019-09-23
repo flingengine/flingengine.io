@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Fling Engine
 
 You can use the [editor on GitHub](https://github.com/flingengine/flingengine.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
