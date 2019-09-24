@@ -13,11 +13,13 @@ layout: default
   <h3>Features</h3>
   <ul>
     <li>Cross platform (Windows and Linux)</li>
-    <li>Deferred renderering pipeline</li>
-    <li>Effecient gaemplay framewok via [Entt](https://github.com/skypjack/entt)</li>
+    <li>Open source!</li>
+    <li>Deferred Vulkan renderering pipeline</li>
+    <li>Simple Effecient gaemplay framewok via <a href="https://github.com/skypjack/entt" target="_blank">Entt</a></li>
+    <li>A flat data model</li>
   </ul>
 
-  <h2>Get the source code on GitHub</h2>
+  <h3>Get the source code on GitHub</h3>
   <a href="https://github.com/flingengine/FlingEngine" target="_blank">
     <img id = "logo_img" src="{{ site.url }}\media\GitHub-Mark-32px.png" lat="GitHub Logo"/>
   </a>
@@ -25,22 +27,30 @@ layout: default
 
 
 <h2>Useage</h2>
-All you need to do in order to make a game with the Fling Engine is 
-to override the `Fling::Game` class, and specify your game when you
-create your engine instance. 
+<p>All you need to do in order to make a game with the Fling Engine is 
+to override the <code class="language-cpp">Fling::Game</code> class, and specify your game when you
+create your engine instance. </p>
 
-Your game's `main.cpp`:
+
+<p>Here is a very simple example of a game's <code class="language-cpp">main.cpp</code>:</p>
 <pre><code class="language-cpp">
     #include "FlingEngine.h"
+
+    class YourGame : public Fling::Game
+    {
+        void Update(float dt){ /* Update your systems */ }
+        void Read() { /* Read out component system data */ }
+        void Write() { /* Write out component system data */ } 
+    };
 
     /* Entry point for using the Fling Engine! */
     int main(int argc, char* argv[])
     {
       Fling::Engine Engine = {};
-    
+      // wat
       try
       {
-        Engine.Run<YourGame>();
+        Engine.Run&ltYourGame&gt();
       }
       catch (const std::exception& e)
       {

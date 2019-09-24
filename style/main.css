@@ -127,7 +127,9 @@ footer {
 #logo_img {
   width: 52px;
   height: 52px;
-  margin: 0 auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   filter: brightness(0%) opacity(80%);
 }
 
