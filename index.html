@@ -14,7 +14,7 @@ layout: default
   <ul>
     <li>Cross platform (Windows and Linux)</li>
     <li>Open source!</li>
-    <li>Deferred Vulkan renderering pipeline</li>
+    <li>Deferred <a href="https://www.lunarg.com/vulkan-sdk/" target="_blank">Vulkan</a> renderering pipeline</li>
     <li>Simple Effecient gaemplay framewok via <a href="https://github.com/skypjack/entt" target="_blank">Entt</a></li>
     <li>A flat data model</li>
   </ul>
@@ -38,9 +38,9 @@ create your engine instance. </p>
 
     class YourGame : public Fling::Game
     {
-        void Update(float dt){ /* Update your systems */ }
-        void Read() { /* Read out component system data */ }
-        void Write() { /* Write out component system data */ } 
+        void Update(float dt) override { /* Update your systems */ }
+        void Read(/* TODO: A stream for files */) override { /* Read out component system data */ }
+        void Write(/* TODO: A stream for files */) override { /* Write out component system data */ } 
     };
 
     /* Entry point for using the Fling Engine! */
@@ -60,4 +60,58 @@ create your engine instance. </p>
     
       return EXIT_SUCCESS;
     }
+</code></pre>
+
+<h3>Building from Source</h3>
+<p>The Fling Engine uses CMake for quick and easy setup of your development enviornment no matter
+what platform you are on.</p>
+<p>There are several CMake options to consider when building the Fling Engine:</p>
+<ul>
+<li><code class="language-c">-DCMAKE_BUILD_TYPE=Release</code> will compile your code in release mode (optimizations on), 
+  but keep logging enabled and the asset directories absolute.</li>
+<li><code class="language-c">-DDEFINE_SHIPPING=ON</code> will compile your code in release mode, <i>but</i> the Assets and Config directories are 
+now relative to the executable. This is desirable for Shipping a game.</li>
+<li><code class="language-c">-DGSL_CXX_STANDARD=17</code> Since we use experimental GLM features, you must define the GSL 
+  standard to be C++17 and up in your enviornment.</li>
+</ul>
+
+
+<h3>The Config Folder</h3>
+<p>
+Fling Engine uses some simple <code class="language-c">ini</code> files for settings that we thought might be
+useful for you to tweak. Check out a full config 
+<a href="https://github.com/flingengine/FlingEngine/blob/master/Config/EngineConf.ini" target="_blank">here</a>.
+</p>
+<p>Here is a quick example config file:</p>
+  
+<pre><code class="language-cpp">
+    ; Core engine config example
+    [Engine]
+    WindowWidth=800
+    WindowHeight=600
+    ; The text shown in the window title bar! 
+    WindowTitle=Fling Engine
+    
+    ; Will show what git branch and commit head in the title bar
+    DisplayBuildInfoInTitle=true
+    DisplayVersionInfoInTitle=true
+    
+    ; This is relative to the Assets directory
+    WindowIconImage=FlingEngineLogo.png
+    
+    ; Graphics API Settings
+    [Vulkan]
+    EnableValidationLayers=false
+    
+    [Camera]
+    MoveSpeed=10
+    RotationSpeed=40
+    
+    ; Game settings! Add any custom config file settings you want to read in here 
+    ; @see FlingConfig
+    [Game]
+
+    ; Start level is relative to the assets directory
+    ; @see World::LoadLevel
+    StartLevel=Levels/EmptyLevel.json
 </code></pre>
