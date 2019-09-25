@@ -5,32 +5,41 @@ layout: default
 <div id="about">
   <img id = "projectBanner" src="{{ site.url }}\media\default.png" lat="GitHub Logo"/>
 
+  <h3>Scalable</h3>
   <p>
-    Fling Engine is a cross platform Vulkan game engine with a focus on providing
-    a simple to use data oriented framework. 
+      With the power of Vulkan and a data oriented architecture the engine can get the most
+      out of your hardware. Our memory model is flat, which makes parellization of our 
+      pipeline easy while keeping as much cache coherency has possible. 
   </p>
 
-  <h3>Features</h3>
-  <ul>
-    <li>Cross platform (Windows and Linux)</li>
-    <li>Open source!</li>
-    <li>Deferred <a href="https://www.lunarg.com/vulkan-sdk/" target="_blank">Vulkan</a> renderering pipeline</li>
-    <li>Simple and efficient gameplay framewok via <a href="https://github.com/skypjack/entt" target="_blank">Entt</a></li>
-    <li>A flat and controllable data model</li>
-  </ul>
+  <h3>Extendable</h3>
+  <p>
+    The engine is completely open source and all code is peer reviewed and tested before beign submitted.
+    This helps us maintain a high quality bar while ensuring that the code is scalable and 
+    easy to understandable.  
+  </p>
 
-  <h3>Get the source code on GitHub</h3>
-  <a href="https://github.com/flingengine/FlingEngine" target="_blank">
-    <img id = "logo_img" src="{{ site.url }}\media\GitHub-Mark-32px.png" lat="GitHub Logo"/>
-  </a>
-</div> <!-- End about -->
-
+  <h3>Simple</h3>
+  <p>
+    The framework for the engine is written in such a way that all you need to do to create a 
+    game in Fling is create a game class. From there you have all the control to write whatever kind
+    of gameplay systems you want. 
+  </p>
+  
+  <div id="image_banner">
+    <a href="https://github.com/flingengine/FlingEngine" target="_blank">
+      <img id = "logo_img" src="{{ site.url }}\media\GitHub-Mark-32px.png" lat="GitHub Logo"/>
+    </a>
+    
+    <a href="https://github.com/flingengine/FlingEngine" target="_blank">
+      <img id = "logo_img" src="{{ site.url }}\media\docs.png" lat="GitHub Logo"/>
+    </a>
+  </div>
 
 <h2>Usage</h2>
 <p>All you need to do in order to make a game with the Fling Engine is 
 to override the <code class="language-cpp">Fling::Game</code> class, and specify your game when you
 create your engine instance. </p>
-
 
 <p>Here is a very simple example of a game's <code class="language-cpp">main.cpp</code>:</p>
 <pre><code class="language-cpp">
@@ -70,11 +79,33 @@ what platform you are on.</p>
 <li><code class="language-c">-DCMAKE_BUILD_TYPE=Release</code> will compile your code in release mode (optimizations on), 
   but keep logging enabled and the asset directories absolute.</li>
 <li><code class="language-c">-DDEFINE_SHIPPING=ON</code> will compile your code in release mode, <i>but</i> the Assets and Config directories are 
-now relative to the executable. This is desirable for Shipping a game.</li>
-<li><code class="language-c">-DGSL_CXX_STANDARD=17</code> Since we use experimental GLM features, you must define the GSL 
-  standard to be C++17 and up in your enviornment.</li>
+now relative to the executable.</li>
 </ul>
 
+<h3>The Assets Folder</h3>
+<p>
+  The Assets folder is where all assets (models, textures, shaders, levels, etc) should be placed. 
+  When you run CMake file paths are generated to be absolute based on where you have 
+  cloned the repo. This means that if you move the folder or repo, <i>you must re-run CMake</i>.   
+</p>
+<p>
+  A simple setup like this makes quick iteration on assets on much easier without the overhead of 
+  needing a full asset management database. 
+</p>
+<p>
+  Obviously you will want asset paths to be dynamic for a shipping product. All you have to do 
+  in order to accomplish this is to set the <code class="language-c">-DDEFINE_SHIPPING</code>
+  CMake flag to be <code class="language-c">ON</code> when you run CMake. This also adds a C++ define 
+  that you can check simply: 
+</p>
+
+<pre><code class="language-cpp">
+#ifdef FLING_SHIPPING
+  // Do some nice stuff
+#else
+  // Do non-shipping code, perhaps with a lot of log messages
+#endif
+</code></pre>
 
 <h3>The Config Folder</h3>
 <p>

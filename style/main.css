@@ -19,15 +19,6 @@ p, ul, li {
   opacity: 0.9;
 }
 
-#post-preview {
-  list-style-type: none;
-}
-
-#tools {
-    font-family: 'Eczar', serif;
-    opacity: 0.7;
-}
-
 
 /** CSS transitions from here: https://codepen.io/EvyatarDa/pen/waKXMd */
 
@@ -124,12 +115,15 @@ footer {
   text-align: center;
 }
 
+#image_banner {
+  text-align: center;
+}
+
 #logo_img {
-  width: 52px;
-  height: 52px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 48px;
+  height: 48px;
+  padding-left: 5px;
+  padding-right: 5px;
   filter: brightness(0%) opacity(80%);
 }
 
